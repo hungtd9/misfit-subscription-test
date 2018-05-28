@@ -16,7 +16,7 @@ module.exports = {
         res.redirect('/');
     },
     misfit: function (req, res) {
-        var url = 'https://api.misfitwearables.com/auth/dialog/authorize?';
+        var url = 'https://api.int.misfit.com/auth/dialog/authorize?';
         url += 'response_type=code&';
         url += 'client_id=' + sails.config.app_key + '&';
         url += 'scope=email&';
@@ -28,7 +28,7 @@ module.exports = {
         var code = req.param('code');
         console.log("exchange token");
 
-        request.post('https://api.misfitwearables.com/auth/tokens/exchange',
+        request.post('https://api.int.misfit.com/auth/tokens/exchange',
             {
                 form: {
                     grant_type: 'authorization_code',
